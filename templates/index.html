@@ -8,44 +8,46 @@
 </head>
 <body>
     <div class="container">
-        <h1>🐶 Generador de Nombres para Mascotas 🐱</h1>
-
+        <h1>Generador de Nombres para Mascotas 🐶🐱</h1>
+        
         <form method="POST" enctype="multipart/form-data">
             <label for="file">📷 Sube una foto de tu mascota:</label>
             <input type="file" name="file" required>
-
-            <label for="gender">⚥ Selecciona el género:</label>
+            
+            <label for="gender">⚤ Selecciona el género:</label>
             <select name="gender">
                 <option value="macho">Macho</option>
                 <option value="hembra">Hembra</option>
             </select>
-
+            
             <label for="style">🎭 Selecciona el estilo de nombre:</label>
             <select name="style">
                 <option value="chistoso">Chistoso</option>
                 <option value="tierno">Tierno</option>
                 <option value="rudo">Rudo</option>
             </select>
-
-            <div class="buttons">
-                <button type="submit" class="btn">✨ Generar Nombre</button>
-                <button type="button" class="btn reset" onclick="window.location.reload()">🔄 Reiniciar</button>
-            </div>
+            
+            <button type="submit">✨ Generar Nombres</button>
         </form>
 
         {% if image_url %}
             <h2>📌 Imagen subida:</h2>
-            <img src="{{ image_url }}" alt="Imagen de la mascota">
+            <img src="{{ image_url }}" alt="Imagen de la mascota" width="300">
         {% endif %}
 
         {% if nombres_generados %}
             <h2>🎉 Nombres sugeridos:</h2>
-            <ul class="name-list">
+            <ul>
                 {% for nombre in nombres_generados %}
-                    <li>🐾 {{ nombre }}</li>
+                    <li>{{ nombre }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
+
+        <!-- Botón para reiniciar la página -->
+        <form method="GET">
+            <button type="submit">🔄 Reiniciar</button>
+        </form>
     </div>
 </body>
 </html>
