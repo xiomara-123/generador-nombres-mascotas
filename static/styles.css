@@ -1,86 +1,32 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    background-color: #f8f9fa;
     text-align: center;
 }
 
 h1 {
-    font-size: 20px;
     color: #333;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
+form {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-input, select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.btn {
-    background: #4CAF50;
+button {
+    background-color: #007bff;
     color: white;
-    border: none;
     padding: 10px;
-    width: 100%;
-    margin-top: 10px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.btn:hover {
-    background: #45a049;
-}
-
-.reset-btn {
-    background: #f44336;
-}
-
-.reset-btn:hover {
-    background: #d32f2f;
-}
-
-.image-container {
-    margin-top: 15px;
-}
-
-.uploaded-image {
-    width: 100%;
-    max-height: 250px;
-    border-radius: 5px;
-    margin-top: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.nombres-generados {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.nombres-generados li {
-    background: #eee;
-    padding: 8px;
-    margin: 5px;
-    border-radius: 5px;
-    font-weight: bold;
+button:hover {
+    background-color: #0056b3;
 }
