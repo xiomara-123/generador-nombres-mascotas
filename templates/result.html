@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>¡Aquí están los nombres para tu mascota!</h1>
+        <img src="{{ filepath }}" alt="Imagen de la mascota" class="pet-image">
+        
+        <h2>Nombres sugeridos:</h2>
+        <ul>
+            {% for name in pet_names %}
+                <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/">Volver al inicio</a>
+    </div>
+</body>
+</html>

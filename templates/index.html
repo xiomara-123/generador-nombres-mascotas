@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Nombres para Mascotas</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🐾 Sube una foto de tu mascota 🐾</h1>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form id="uploadForm" action="/" method="POST" enctype="multipart/form-data">
+            <label for="file">📸 Selecciona una imagen:</label>
+            <input type="file" name="file" id="fileInput" accept="image/*" required>
+            
+            <label for="gender">⚤ Género:</label>
+            <select name="gender" required>
+                <option value="macho">Macho</option>
+                <option value="hembra">Hembra</option>
+            </select>
+
+            <label for="style">🎭 Estilo del Nombre:</label>
+            <select name="style" required>
+                <option value="chistoso">Chistoso</option>
+                <option value="tierno">Tierno</option>
+                <option value="rudo">Rudo</option>
+            </select>
+
+            <button type="submit" class="btn">Generar Nombres</button>
+            <button type="button" id="resetButton" class="btn reset-btn">Reiniciar</button>
+        </form>
+
+        {% if image_url %}
+            <div class="image-container">
+                <h3>📷 Imagen subida:</h3>
+                <img src="{{ image_url }}" id="uploadedImage" alt="Imagen de la mascota" class="uploaded-image">
+            </div>
+        {% endif %}
+
+        {% if nombres_generados %}
+            <h3>📛 Nombres sugeridos:</h3>
+            <ul class="nombres-generados" id="nameList">
+                {% for nombre in nombres_generados %}
+                    <li>{{ nombre }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById("resetButton").addEventListener("click", function() {
+            document.getElementById("uploadForm").reset(); // Reinicia el formulario
+            document.getElementById("fileInput").value = ""; // Borra la imagen seleccionada
+            if (document.getElementById("uploadedImage")) {
+                document.getElementById("uploadedImage").remove(); // Elimina la imagen mostrada
+            }
+            if (document.getElementById("nameList")) {
+                document.getElementById("nameList").innerHTML = ""; // Borra la lista de nombres generados
+            }
+        });
+    </script>
+</body>
+</html>
