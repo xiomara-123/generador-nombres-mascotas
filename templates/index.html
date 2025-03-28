@@ -7,40 +7,45 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Generador de Nombres para Mascotas</h1>
-    
-    <form method="POST" enctype="multipart/form-data">
-        <label for="file">Sube una foto de tu mascota:</label>
-        <input type="file" name="file" required>
-        
-        <label for="gender">Selecciona el género:</label>
-        <select name="gender">
-            <option value="macho">Macho</option>
-            <option value="hembra">Hembra</option>
-        </select>
-        
-        <label for="style">Selecciona el estilo de nombre:</label>
-        <select name="style">
-            <option value="chistoso">Chistoso</option>
-            <option value="tierno">Tierno</option>
-            <option value="rudo">Rudo</option>
-        </select>
-        
-        <button type="submit">Generar Nombre</button>
-    </form>
+    <div class="container">
+        <h1>🐶 Generador de Nombres para Mascotas 🐱</h1>
 
-    {% if image_url %}
-        <h2>Imagen subida:</h2>
-        <img src="{{ image_url }}" alt="Imagen de la mascota" width="300">
-    {% endif %}
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file">📷 Sube una foto de tu mascota:</label>
+            <input type="file" name="file" required>
 
-    {% if nombres_generados %}
-        <h2>Nombres sugeridos:</h2>
-        <ul>
-            {% for nombre in nombres_generados %}
-                <li>{{ nombre }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+            <label for="gender">⚥ Selecciona el género:</label>
+            <select name="gender">
+                <option value="macho">Macho</option>
+                <option value="hembra">Hembra</option>
+            </select>
+
+            <label for="style">🎭 Selecciona el estilo de nombre:</label>
+            <select name="style">
+                <option value="chistoso">Chistoso</option>
+                <option value="tierno">Tierno</option>
+                <option value="rudo">Rudo</option>
+            </select>
+
+            <div class="buttons">
+                <button type="submit" class="btn">✨ Generar Nombre</button>
+                <button type="button" class="btn reset" onclick="window.location.reload()">🔄 Reiniciar</button>
+            </div>
+        </form>
+
+        {% if image_url %}
+            <h2>📌 Imagen subida:</h2>
+            <img src="{{ image_url }}" alt="Imagen de la mascota">
+        {% endif %}
+
+        {% if nombres_generados %}
+            <h2>🎉 Nombres sugeridos:</h2>
+            <ul class="name-list">
+                {% for nombre in nombres_generados %}
+                    <li>🐾 {{ nombre }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
 </body>
 </html>
